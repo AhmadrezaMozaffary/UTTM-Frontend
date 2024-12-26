@@ -1,0 +1,11 @@
+<span
+  [ngClass]="{
+    presenter: true,
+    navbar: type == 'navbar',
+    footer: type == 'footer'
+  }"
+>
+  <div *ngFor="let action of actions['start']"></div>
+  <div *ngFor="let action of actions['middle']"></div>
+  <div *ngFor="let action of actions['end']"></div>
+</span>
