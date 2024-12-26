@@ -1,0 +1,25 @@
+.uttm_host {
+  position: relative;
+  height: 100vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  // padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.mobile {
+  width: 100%;
+}
+
+.desktop {
+  width: 40%;
+}
