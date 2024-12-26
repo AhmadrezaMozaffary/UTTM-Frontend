@@ -1,7 +1,13 @@
 <s-host>
-  <uttm-action-presenter></uttm-action-presenter>
+  <uttm-action-presenter
+    [actions]="navbarActions"
+    type="navbar"
+  ></uttm-action-presenter>
 
   <div id="main-content"></div>
 
-  <uttm-action-presenter type="footer"></uttm-action-presenter>
+  <uttm-action-presenter
+    [actions]="footerActions"
+    type="footer"
+  ></uttm-action-presenter>
 </s-host>

@@ -22,16 +22,21 @@ export class UttmActionPresenterComponent
   }
 
   ngOnInit(): void {
+    console.log(this.customActions);
     this.categorizeActions();
   }
 
   private categorizeActions() {
     if (!this.customActions.length) {
-      throw new Error('PLEASE PROVIDE ACTIONS FOR NAVBAR');
+      throw new Error('PLEASE PROVIDE ACTIONS FOR ' + this.type.toUpperCase());
     }
 
     this.customActions.forEach((action: Action) => {
-      this.actions[action.slot].push(action);
+      if (!Array.isArray(this.actions[action.slot])) {
+        this.actions[action.slot] = [];
+      } else {
+        this.actions[action.slot].push(action);
+      }
     });
   }
 }
