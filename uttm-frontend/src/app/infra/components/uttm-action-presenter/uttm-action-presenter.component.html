@@ -7,7 +7,9 @@
 >
   <ng-container *ngIf="actions['start']?.length">
     <div class="slot-start">
-      <div *ngFor="let action of actions['start']">{{ action.name }}</div>
+      <div *ngFor="let action of actions['start']">
+        <uttm-icon [iconName]="'bb'"></uttm-icon>
+      </div>
     </div>
   </ng-container>
 
