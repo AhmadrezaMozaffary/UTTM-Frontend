@@ -1,9 +1,9 @@
-<div #btn class="button-wrapper">
+<button #btn [class]="config.type" [disabled]="config.disable()">
   <uttm-icon *ngIf="config.icon" [iconName]="config.icon"></uttm-icon>
-  <button [class]="config.type" [disabled]="config.disable()">
-    {{ config.label }}
-  </button>
-</div>
+  <p>
+    {{ config.label ? config.label : "" }}
+  </p>
+</button>
 
 <uttm-tooltip
   *ngIf="config.tooltip"

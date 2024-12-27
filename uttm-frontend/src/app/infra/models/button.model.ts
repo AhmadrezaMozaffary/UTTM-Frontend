@@ -1,5 +1,5 @@
 export interface UttmButton {
-  label: string;
+  label?: string;
   tooltip?: string;
   type: 'primary' | 'secondary' | 'outline';
   icon?: string;
