@@ -1,0 +1,12 @@
+<button #btn [class]="config.type" [disabled]="config.disable()">
+  <uttm-icon *ngIf="config.icon" [iconName]="config.icon"></uttm-icon>
+  <p>
+    {{ config.label ? config.label : "" }}
+  </p>
+</button>
+
+<uttm-tooltip
+  *ngIf="config.tooltip"
+  [targetRef]="btn"
+  [text]="config.tooltip"
+></uttm-tooltip>

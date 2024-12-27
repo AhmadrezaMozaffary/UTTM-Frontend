@@ -1,6 +1,6 @@
 import { Component, Injector, Input, OnInit } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
-import { Action } from '../../models/action.model';
+import { UttmAction } from '../../models/action.model';
 
 @Component({
   selector: 'uttm-action-presenter',
@@ -11,30 +11,20 @@ export class UttmActionPresenterComponent
   extends UttmComponentBase
   implements OnInit
 {
-  @Input('actions') customActions: Action[] = [];
+  @Input('actions') actions: UttmAction[] = [];
   @Input('type') type: 'navbar' | 'footer' = 'navbar';
-
-  actions: { [slot: string]: Action[] } = {};
 
   constructor(injetor: Injector) {
     super(injetor);
   }
 
   ngOnInit(): void {
-    this.categorizeActions();
+    this.initActions();
   }
 
-  private categorizeActions() {
-    if (!this.customActions.length) {
+  private initActions() {
+    if (!this.actions.length) {
       throw new Error('PLEASE PROVIDE ACTIONS FOR ' + this.type.toUpperCase());
     }
-
-    this.customActions.forEach((action: Action) => {
-      if (!Array.isArray(this.actions[action.slot])) {
-        this.actions[action.slot] = [];
-      } else {
-        this.actions[action.slot].push(action);
-      }
-    });
   }
 }

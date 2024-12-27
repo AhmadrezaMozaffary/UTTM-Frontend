@@ -1,8 +1,11 @@
-export interface Action {
-  slot: ActionSlot;
-  tooltip: string;
-  name: string;
-  icon: string;
+import { UttmButton } from './button.model';
+
+export interface UttmAction {
+  slot: UttmActionSlot;
+  renderHint: UttmActionRenderHint;
+  uttmButtonInfo?: UttmButton;
 }
 
-export type ActionSlot = 'start' | 'middle' | 'end';
+export type UttmActionSlot = 'start' | 'middle' | 'end';
+
+export type UttmActionRenderHint = 'uttm-button';
