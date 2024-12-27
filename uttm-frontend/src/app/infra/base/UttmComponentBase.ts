@@ -8,7 +8,7 @@ export default class UttmComponentBase {
     this.currentAgent = userService.getDevice();
   }
 
-  protected get isMobile(): boolean {
-    return this.currentAgent == UserAgentType.Mobile;
+  protected get isDesktop(): boolean {
+    return this.currentAgent == UserAgentType.Desktop;
   }
 }
