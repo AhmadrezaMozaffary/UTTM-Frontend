@@ -11,30 +11,20 @@ export class UttmActionPresenterComponent
   extends UttmComponentBase
   implements OnInit
 {
-  @Input('actions') customActions: UttmAction[] = [];
+  @Input('actions') actions: UttmAction[] = [];
   @Input('type') type: 'navbar' | 'footer' = 'navbar';
-
-  actions: { [slot: string]: UttmAction[] } = {};
 
   constructor(injetor: Injector) {
     super(injetor);
   }
 
   ngOnInit(): void {
-    this.categorizeActions();
+    this.initActions();
   }
 
-  private categorizeActions() {
-    if (!this.customActions.length) {
+  private initActions() {
+    if (!this.actions.length) {
       throw new Error('PLEASE PROVIDE ACTIONS FOR ' + this.type.toUpperCase());
     }
-
-    this.customActions.forEach((action: UttmAction) => {
-      if (!Array.isArray(this.actions[action.slot])) {
-        this.actions[action.slot] = [];
-      } else {
-        this.actions[action.slot].push(action);
-      }
-    });
   }
 }
