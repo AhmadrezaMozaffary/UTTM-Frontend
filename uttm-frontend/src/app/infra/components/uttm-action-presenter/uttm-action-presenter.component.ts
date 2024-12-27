@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
-import { UserService } from 'src/app/services/user.service';
-import { Action, ActionSlot } from '../../models/action.model';
+import { Action } from '../../models/action.model';
 
 @Component({
   selector: 'uttm-action-presenter',
@@ -17,12 +16,11 @@ export class UttmActionPresenterComponent
 
   actions: { [slot: string]: Action[] } = {};
 
-  constructor(userService: UserService) {
-    super(userService);
+  constructor() {
+    super();
   }
 
   ngOnInit(): void {
-    console.log(this.customActions);
     this.categorizeActions();
   }
 

@@ -14,8 +14,8 @@ export class AppComponent extends UttmComponentBase implements OnInit {
   navbarActions: Action[] = [];
   footerActions: Action[] = [];
 
-  constructor(userService: UserService) {
-    super(userService);
+  constructor() {
+    super();
   }
 
   ngOnInit(): void {
