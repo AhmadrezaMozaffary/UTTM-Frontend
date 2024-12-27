@@ -1,14 +1,17 @@
-import { Inject } from '@angular/core';
+import { Injector } from '@angular/core';
 import { UserAgentType } from '../models/user.model';
 import { DeviceDetectionService } from 'src/app/services/device-detection.service';
+import { DEVICE_DETECTION_SERVICE } from 'src/app/services/injection-tokens';
 
 export default class UttmComponentBase {
-  @Inject(DeviceDetectionService)
   protected deviceDetectionService!: DeviceDetectionService;
 
   private currentAgent: UserAgentType;
 
-  constructor() {
+  constructor(injector: Injector) {
+    this.deviceDetectionService = injector.get<DeviceDetectionService>(
+      DEVICE_DETECTION_SERVICE
+    );
     this.currentAgent = this.deviceDetectionService.getDevice();
   }
 

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from './services/user.service';
-import UttmComponentBase from './infra/base/UttmComponentBase';
+import { Component, Injector, OnInit } from '@angular/core';
+\import UttmComponentBase from './infra/base/UttmComponentBase';
 import { Action } from './infra/models/action.model';
 
 @Component({
@@ -14,8 +13,8 @@ export class AppComponent extends UttmComponentBase implements OnInit {
   navbarActions: Action[] = [];
   footerActions: Action[] = [];
 
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
 
   ngOnInit(): void {
