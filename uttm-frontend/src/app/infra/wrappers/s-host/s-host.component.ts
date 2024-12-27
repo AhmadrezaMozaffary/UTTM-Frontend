@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
 
 @Component({
@@ -7,7 +7,7 @@ import UttmComponentBase from '../../base/UttmComponentBase';
   styleUrls: ['./s-host.component.scss'],
 })
 export class SHostComponent extends UttmComponentBase {
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
 import { Action } from '../../models/action.model';
 
@@ -16,8 +16,8 @@ export class UttmActionPresenterComponent
 
   actions: { [slot: string]: Action[] } = {};
 
-  constructor() {
-    super();
+  constructor(injetor: Injector) {
+    super(injetor);
   }
 
   ngOnInit(): void {
