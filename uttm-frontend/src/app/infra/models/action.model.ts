@@ -1,8 +1,8 @@
-export interface Action {
-  slot: ActionSlot;
+export interface UttmAction {
+  slot: UttmActionSlot;
   tooltip: string;
   name: string;
   icon: string;
 }
 
-export type ActionSlot = 'start' | 'middle' | 'end';
+export type UttmActionSlot = 'start' | 'middle' | 'end';
