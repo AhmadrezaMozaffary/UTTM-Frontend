@@ -1,0 +1,17 @@
+<div [ngStyle]="{ width: size, height: size, color: color }">
+    <!-- Render SVG icons -->
+    <ng-container *ngIf="type === 'svg'">
+      <img [src]="iconUrl" [alt]="iconName" [ngStyle]="{ width: size, height: size }" />
+    </ng-container>
+  
+    <!-- Render font icons -->
+    <ng-container *ngIf="type === 'font'">
+      <i class="{{ iconName }}" [ngStyle]="{ fontSize: size, color: color }"></i>
+    </ng-container>
+  
+    <!-- Render custom URL icons -->
+    <ng-container *ngIf="type === 'url'">
+      <img [src]="iconUrl" [alt]="iconName" [ngStyle]="{ width: size, height: size }" />
+    </ng-container>
+  </div>
+  

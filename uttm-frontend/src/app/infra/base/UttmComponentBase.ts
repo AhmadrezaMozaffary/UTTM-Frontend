@@ -1,14 +1,18 @@
+import { Inject } from '@angular/core';
 import { UserAgentType } from '../models/user.model';
-import { UserService } from '../../services/user.service';
+import { DeviceDetectionService } from 'src/app/services/device-detection.service';
 
 export default class UttmComponentBase {
+  @Inject(DeviceDetectionService)
+  protected deviceDetectionService!: DeviceDetectionService;
+
   private currentAgent: UserAgentType;
 
-  constructor(private userService: UserService) {
-    this.currentAgent = userService.getDevice();
+  constructor() {
+    this.currentAgent = this.deviceDetectionService.getDevice();
   }
 
-  protected get isMobile(): boolean {
-    return this.currentAgent == UserAgentType.Mobile;
+  protected get isDesktop(): boolean {
+    return this.currentAgent == UserAgentType.Desktop;
   }
 }

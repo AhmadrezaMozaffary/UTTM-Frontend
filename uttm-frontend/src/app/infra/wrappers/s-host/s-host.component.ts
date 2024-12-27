@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 's-host',
@@ -8,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./s-host.component.scss'],
 })
 export class SHostComponent extends UttmComponentBase {
-  constructor(userService: UserService) {
-    super(userService);
+  constructor() {
+    super();
   }
 }

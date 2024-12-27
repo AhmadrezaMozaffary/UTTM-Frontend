@@ -1,12 +1,11 @@
 .presenter {
-  width: 100%;
+  width: inherit;
   height: 75px;
   position: sticky;
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
   align-items: center;
   right: 0;
-  background: #000;
+  // background: #000;
 }
 
 .navbar {
@@ -19,4 +18,19 @@
 
 .reverse {
   flex-direction: row-reverse;
+}
+
+.slot-start {
+  justify-self: flex-start;
+  display: flex;
+}
+
+.slot-middle {
+  justify-self: center;
+  display: flex;
+}
+
+.slot-end {
+  justify-self: flex-end;
+  display: flex;
 }

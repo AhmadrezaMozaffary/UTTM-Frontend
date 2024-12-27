@@ -2,8 +2,9 @@
   [ngClass]="{
     uttm_host: true,
     rtl: true,
-    mobile: isMobile,
-    desktop: !isMobile
+    ltr: false,
+    mobile: !isDesktop,
+    desktop: isDesktop
   }"
 >
   <ng-content></ng-content>

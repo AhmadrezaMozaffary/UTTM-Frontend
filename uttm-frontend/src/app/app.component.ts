@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import UttmComponentBase from './infra/base/UttmComponentBase';
+import { Action } from './infra/models/action.model';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,19 @@ import UttmComponentBase from './infra/base/UttmComponentBase';
 export class AppComponent extends UttmComponentBase implements OnInit {
   title = 'uttm-frontend';
 
-  constructor(userService: UserService) {
-    super(userService);
+  navbarActions: Action[] = [];
+  footerActions: Action[] = [];
+
+  constructor() {
+    super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initToolbarActions();
+    this.initFooterActions();
+  }
+
+  private initToolbarActions(): void {}
+
+  private initFooterActions(): void {}
 }

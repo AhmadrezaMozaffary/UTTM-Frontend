@@ -5,7 +5,23 @@
     footer: type == 'footer'
   }"
 >
-  <div *ngFor="let action of actions['start']"></div>
-  <div *ngFor="let action of actions['middle']"></div>
-  <div *ngFor="let action of actions['end']"></div>
+  <ng-container *ngIf="actions['start']?.length">
+    <div class="slot-start">
+      <div *ngFor="let action of actions['start']">
+        <uttm-icon [iconName]="'bb'"></uttm-icon>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="actions['middle']?.length">
+    <div class="slot-middle">
+      <div *ngFor="let action of actions['middle']">{{ action.name }}</div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="actions['end']?.length">
+    <div class="slot-end">
+      <div *ngFor="let action of actions['end']">{{ action.name }}</div>
+    </div>
+  </ng-container>
 </span>

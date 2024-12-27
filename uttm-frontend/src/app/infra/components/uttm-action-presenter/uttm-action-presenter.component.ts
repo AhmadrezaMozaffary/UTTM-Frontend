@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import UttmComponentBase from '../../base/UttmComponentBase';
-import { UserService } from 'src/app/services/user.service';
-import { Action, ActionSlot } from '../../models/action.model';
+import { Action } from '../../models/action.model';
 
 @Component({
   selector: 'uttm-action-presenter',
@@ -17,8 +16,8 @@ export class UttmActionPresenterComponent
 
   actions: { [slot: string]: Action[] } = {};
 
-  constructor(userService: UserService) {
-    super(userService);
+  constructor() {
+    super();
   }
 
   ngOnInit(): void {
@@ -27,11 +26,15 @@ export class UttmActionPresenterComponent
 
   private categorizeActions() {
     if (!this.customActions.length) {
-      throw new Error('PLEASE PROVIDE ACTIONS FOR NAVBAR');
+      throw new Error('PLEASE PROVIDE ACTIONS FOR ' + this.type.toUpperCase());
     }
 
     this.customActions.forEach((action: Action) => {
-      this.actions[action.slot].push(action);
+      if (!Array.isArray(this.actions[action.slot])) {
+        this.actions[action.slot] = [];
+      } else {
+        this.actions[action.slot].push(action);
+      }
     });
   }
 }
